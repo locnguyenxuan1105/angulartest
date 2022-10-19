@@ -7,8 +7,8 @@ context('Test Articles Page', () => {
         });
     })
 
-    it('should verify article', () => {
-        cy.visit('http://localhost:4200/');
+    it('should verify articles page', () => {
+        cy.visit('https://main--tiny-crisp-9f3453.netlify.app/');
 
         cy.wait('@gqlGetArticlesQuery')
             .its('response.body.data.articles');
@@ -20,7 +20,7 @@ context('Test Articles Page', () => {
         cy.contains('button', 'Load More').click();
 
         cy.wait('@gqlGetArticlesQuery');
-        
+
         cy.get('.article-grid-item').its('length').should('be.gt', 30).and('be.lte', 60);
     })
 })
