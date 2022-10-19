@@ -1,0 +1,15 @@
+<div *ngIf="!(isLoading$ | async)" class="article-detail-wrapper">
+  <div class="article-detail__header">
+    <div class="article-detail__header__image">
+      <img src="{{(article && article.coverImageUrl) || './assets/images/empty.jpg'}}" />
+    </div>
+    <div class="article-detail__header__content">
+      <h1 class="article-detail__header__content__title">{{article.title}}</h1>
+      <p class="article-detail__header__content__description">{{article.description}}</p>
+    </div>
+  </div>
+  <div class="article-detail__content">
+    <h3 class="article-detail__content__header">Content</h3>
+    <p [innerHTML]="article.content"></p>
+  </div>
+</div>
