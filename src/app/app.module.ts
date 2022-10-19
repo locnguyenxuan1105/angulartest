@@ -7,6 +7,7 @@ import { ArticleListComponent } from './article-list/article-list.component';
 import { ArticleDetailsComponent } from './article-details/article-details.component';
 import { GraphQLModule } from './graphql.module';
 import { ArticleGridComponent } from './article-grid/article-grid.component';
+import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 
 @NgModule({
   imports: [
@@ -17,6 +18,7 @@ import { ArticleGridComponent } from './article-grid/article-grid.component';
     ]),
     GraphQLModule,
     HttpClientModule,
+    InfiniteScrollModule
   ],
   declarations: [
     AppComponent,

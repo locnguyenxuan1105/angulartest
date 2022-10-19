@@ -16,6 +16,8 @@ export class ArticleListComponent {
   isMore: Boolean;
   hasMore$: Observable<Boolean>;
   isLoadMore$: Observable<Boolean>;
+  throttle = 500;
+  distance = 1;
 
   constructor(private articleListService: ArticleListService,
     private appStateService: StateService,
@@ -41,7 +43,7 @@ export class ArticleListComponent {
     })
   }
 
-  loadMore() {
+  onScroll() {
     this.hasMore$.subscribe(x => this.isMore = x);
 
     if (this.isMore) {
