@@ -1,7 +1,8 @@
 <div *ngIf="!(isLoading$ | async)" class="article-detail-wrapper">
   <div class="article-detail__header">
     <div class="article-detail__header__image">
-      <img src="{{(article && article.coverImageUrl) || './assets/images/empty.jpg'}}" />
+      <img src="{{(article && article.coverImageUrl) || './assets/images/empty.jpg'}}"
+        onerror="this.src='./assets/images/empty.jpg';" />
     </div>
     <div class="article-detail__header__content">
       <h1 class="article-detail__header__content__title">{{article.title}}</h1>
@@ -10,6 +11,6 @@
   </div>
   <div class="article-detail__content">
     <h3 class="article-detail__content__header">Content</h3>
-    <p [innerHTML]="article.content"></p>
+    <p class="article-detail__content__text" [innerHTML]="article.content"></p>
   </div>
 </div>

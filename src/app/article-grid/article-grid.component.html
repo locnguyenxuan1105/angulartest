@@ -1,11 +1,12 @@
-<div class="article-grid-wrapper">
+<a class="article-grid-wrapper" href="/article?url={{article.url}}" target="_blank">
     <div class="article-grid__image">
-        <img src="{{article.coverImageUrl || './assets/images/empty.jpg'}}" loading="lazy" onerror="this.src='./assets/images/empty.jpg';" />
+        <img src="{{article.coverImageUrl || './assets/images/empty.jpg'}}" loading="lazy"
+            onerror="this.src='./assets/images/empty.jpg';" />
     </div>
     <div class="article-grid__title">
-        <a href="/article?url={{article.url}}">{{article.title}}</a>
+        {{article.title}}
     </div>
     <div class="article-grid__description">
         <p>{{article.description.split('|')}}</p>
     </div>
-</div>
+</a>

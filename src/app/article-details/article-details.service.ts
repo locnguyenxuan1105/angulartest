@@ -13,7 +13,8 @@ export class ArticleDetailService {
             query: GET_ARTICLE,
             variables: {
                 url: url
-            }
+            },
+            errorPolicy: 'all'
         });
     }
 

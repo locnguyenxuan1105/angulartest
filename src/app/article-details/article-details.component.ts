@@ -28,7 +28,8 @@ export class ArticleDetailsComponent implements OnInit {
 
   loadItem(url: string) {
     this.appStateService.setLoading(true);
-    this.articleDetailService.loadItem(url).valueChanges.subscribe(({ data: { article } }: any) => {
+    this.articleDetailService.loadItem(url).valueChanges.subscribe(({ data: { article }, error }: any) => {
+      console.log(error);
       this.article = article;
       this.appStateService.setLoading(false);
     })
