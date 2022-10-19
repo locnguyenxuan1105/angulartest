@@ -8,7 +8,7 @@ import { ArticleDetailsComponent } from './article-details/article-details.compo
 import { GraphQLModule } from './graphql.module';
 import { ArticleGridComponent } from './article-grid/article-grid.component';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 @NgModule({
   imports: [
     BrowserModule,
@@ -18,7 +18,8 @@ import { InfiniteScrollModule } from 'ngx-infinite-scroll';
     ]),
     GraphQLModule,
     HttpClientModule,
-    InfiniteScrollModule
+    InfiniteScrollModule,
+    BrowserAnimationsModule
   ],
   declarations: [
     AppComponent,

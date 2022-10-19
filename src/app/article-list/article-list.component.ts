@@ -5,11 +5,26 @@ import { AppState, Article } from '../interface/interface';
 import { ArticleListService } from './article-list.service';
 import { ArticleListStateService } from './article-list.state.service';
 import { ChangeDetectorRef } from '@angular/core';
+import { animate, state, style, transition, trigger } from '@angular/animations';
 
 @Component({
   selector: 'app-article-list',
   templateUrl: './article-list.component.html',
-  styleUrls: ['./article-list.component.scss']
+  styleUrls: ['./article-list.component.scss'],
+  animations: [
+    trigger("myTrigger", [
+      state(
+        "fadeInFlash",
+        style({
+          opacity: "1"
+        })
+      ),
+      transition("void => *", [
+        style({ opacity: "0", transform: "translateY(20px)" }),
+        animate("500ms")
+      ])
+    ])
+  ]
 })
 export class ArticleListComponent {
   articles: Article[] = [];
@@ -18,7 +33,8 @@ export class ArticleListComponent {
   isLoadMore$: Observable<Boolean>;
   throttle = 500;
   distance = 1;
-
+  state: string = "fadeInFlash";
+  
   constructor(private articleListService: ArticleListService,
     private appStateService: StateService,
     private listStateService: ArticleListStateService) { }
